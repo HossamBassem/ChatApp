@@ -1,16 +1,16 @@
 package com.chatapp.chatApp.ui.login
 
-import android.app.Application
 import android.util.Log
 import androidx.databinding.ObservableField
-import androidx.lifecycle.ViewModel
 import com.chatapp.chatApp.ui.base.BaseViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.chatapp.database.signIn
+import com.chatapp.chatApp.ui.model.AppUser
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
 
-class LoginViewModel : BaseViewModel() {
+class LoginViewModel : BaseViewModel<Navigator>() {
 
     val email = ObservableField<String>()
     val emailError = ObservableField<String>()
@@ -27,6 +27,10 @@ class LoginViewModel : BaseViewModel() {
 
     }
 
+    fun openRegister() {
+        navigator?.openRegisterScreen()
+    }
+
     private fun addAccountToFirebase() {
         showLoding.value = true
         auth.signInWithEmailAndPassword(email.get()!!, password.get()!!)
@@ -38,11 +42,33 @@ class LoginViewModel : BaseViewModel() {
                     Log.e("fail", "couldnt" + task.exception?.localizedMessage)
                 } else {
                     //success message
-                    messageLiveData.value = "Successful Registration"
+                    //  navigator?.openHomeScreen()
+                    //   messageLiveData.value = "Successful Registration"
                     Log.e("done", "great")
+                    checkUserFromFirestore(task.result.user?.uid)
+
                 }
 
             }
+    }
+
+    private fun checkUserFromFirestore(uid: String?) {
+        showLoding.value = true
+        signIn(uid!!,
+            OnSuccessListener { docSnapshot ->
+                showLoding.value = false
+                val user = docSnapshot.toObject(AppUser::class.java)
+                if (user == null) {
+                    messageLiveData.value = "Invalid Email Or Password"
+                    return@OnSuccessListener
+                }
+                navigator?.openHomeScreen()
+            },
+            OnFailureListener {
+                showLoding.value = false
+                messageLiveData.value = it.localizedMessage
+
+            })
     }
 
     private fun validate(): Boolean {

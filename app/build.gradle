@@ -40,6 +40,10 @@ android {
 dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-common-ktx:20.1.1'
+    implementation 'com.google.firebase:firebase-firestore:24.3.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.3.0'
+
+
     def lifecycle_version = "2.6.0-alpha01"
     def arch_version = "2.1.0"
     implementation 'com.google.android.gms:play-services-auth:20.2.0'

@@ -75,13 +75,14 @@
                     android:id="@+id/email_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:error="@{vm.emailError}"
                     app:boxBackgroundColor="#0000">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@={vm.email}"
-                        app:error="@{vm.emailError}"
+
 
                         android:hint="@string/email" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -90,13 +91,14 @@
                     android:id="@+id/password_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:error="@{vm.passwordError}"
                     app:boxBackgroundColor="#0000">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@={vm.password}"
-                        app:error="@{vm.passwordError}"
+
                         android:hint="@string/password" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,6 +109,13 @@
                     android:onClick="@{()->vm.login()}"
                     android:backgroundTint="@color/blue_main"
                     android:layout_margin="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:onClick="@{()->vm.openRegister()}"
+                    android:text="@string/or_create_my_account" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

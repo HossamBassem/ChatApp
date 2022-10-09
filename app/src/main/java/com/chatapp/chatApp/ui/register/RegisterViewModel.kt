@@ -1,16 +1,16 @@
 package com.chatapp.chatApp.ui.register
 
-import android.app.Application
 import android.util.Log
 import androidx.databinding.ObservableField
-import androidx.lifecycle.ViewModel
 import com.chatapp.chatApp.ui.base.BaseViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.chatapp.database.addUserToFirestore
+import com.chatapp.chatApp.ui.model.AppUser
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
 
-class RegisterViewModel : BaseViewModel() {
+class RegisterViewModel : BaseViewModel<com.chatapp.chatApp.ui.register.Navigator>() {
     val firstName = ObservableField<String>()
     val firstNameError = ObservableField<String>()
     val lastName = ObservableField<String>()
@@ -43,11 +43,41 @@ class RegisterViewModel : BaseViewModel() {
                     Log.e("fail", "couldnt" + task.exception?.localizedMessage)
                 } else {
                     //success message
-                    messageLiveData.value = "Successful Registration"
+                    // messageLiveData.value = "Successful Registration"
                     Log.e("done", "great")
+
+                    createFirestoreUser(task.result.user?.uid)
                 }
 
             }
+    }
+
+    fun createFirestoreUser(uid: String?) {
+        Log.e("firestore", "fireeee")
+        showLoding.value = true
+        var user = AppUser(
+            id = uid,
+            firstName = firstName.get(),
+            lastName = lastName.get(),
+            userName = userName.get(),
+            email = email.get()
+        )
+        Log.e("we", "here")
+        addUserToFirestore(user,
+            OnSuccessListener {
+                Log.e("sssssss", "ssssssss")
+
+                showLoding.value = false
+
+                navigator?.openHomeScreen()
+
+            },
+            OnFailureListener {
+                Log.e("nnnnnnnnnnnn", "mnnnnnnnn")
+                showLoding.value = false
+                messageLiveData.value = it.localizedMessage
+
+            })
     }
 
     private fun validate(): Boolean {

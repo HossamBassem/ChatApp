@@ -10,7 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 
-open abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompatActivity() {
+open abstract class BaseActivity<VM : BaseViewModel<*>, DB : ViewDataBinding> :
+    AppCompatActivity() {
     lateinit var viewModel: VM
     lateinit var viewdataBinding: DB
     override fun onCreate(savedInstanceState: Bundle?) {
