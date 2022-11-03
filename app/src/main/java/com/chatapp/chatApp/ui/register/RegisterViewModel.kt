@@ -2,9 +2,10 @@ package com.chatapp.chatApp.ui.register
 
 import android.util.Log
 import androidx.databinding.ObservableField
+import com.chatapp.chatApp.ui.DataUtils
 import com.chatapp.chatApp.ui.base.BaseViewModel
 import com.chatapp.database.addUserToFirestore
-import com.chatapp.chatApp.ui.model.AppUser
+import com.chatapp.database.model.AppUser
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
@@ -68,7 +69,7 @@ class RegisterViewModel : BaseViewModel<com.chatapp.chatApp.ui.register.Navigato
                 Log.e("sssssss", "ssssssss")
 
                 showLoding.value = false
-
+                DataUtils.user = user
                 navigator?.openHomeScreen()
 
             },

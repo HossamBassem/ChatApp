@@ -1,17 +1,15 @@
 package com.chatapp.chatApp.ui.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
+import com.chatapp.Constants
 import com.chatapp.R
 import com.chatapp.chatApp.ui.addRoom.AddRoom
 import com.chatapp.chatApp.ui.base.BaseActivity
-import com.chatapp.chatApp.ui.base.BaseViewModel
-import com.chatapp.chatApp.ui.model.Room
-import com.chatapp.chatApp.ui.register.RegisterActivity
+import com.chatapp.chatApp.ui.chat.ChatActivity
+import com.chatapp.database.model.Room
 import com.chatapp.database.getRooms
 import com.chatapp.databinding.ActivityHomeBinding
 
@@ -21,6 +19,16 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(), Navigat
         super.onCreate(savedInstanceState)
         viewdataBinding.vm = viewModel
         viewModel.navigator = this
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        adapter.onItemClickListener = object : RoomsAdapter.OnItemClickListener {
+            override fun onItemClick(pos: Int, room: Room) {
+                startChatActivty(room)
+            }
+
+        }
         viewdataBinding.recyclerView.adapter = adapter
     }
 
@@ -44,6 +52,12 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>(), Navigat
 
     override fun initViewModel(): HomeViewModel {
         return ViewModelProvider(this).get(HomeViewModel::class.java)
+    }
+
+    fun startChatActivty(room: Room) {
+        val intent = Intent(this, ChatActivity::class.java)
+        intent.putExtra(Constants.EXTRA_ROOM, room)
+        startActivity(intent)
     }
 
     override fun goToCreateRoom() {

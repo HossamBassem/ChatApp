@@ -1,4 +1,4 @@
-package com.chatapp.chatApp.ui.model
+package com.chatapp.database.model
 
 import com.chatapp.R
 

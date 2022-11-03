@@ -19,6 +19,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".chatApp.ui.splash.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".chatApp.ui.chat.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".chatApp.ui.addRoom.AddRoom"
             android:exported="false" />
         <activity
@@ -27,11 +39,7 @@
         <activity
             android:name=".chatApp.ui.login.LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.chatapp.chatApp.ui.register.RegisterActivity"

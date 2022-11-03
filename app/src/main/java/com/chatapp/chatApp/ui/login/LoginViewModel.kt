@@ -2,9 +2,10 @@ package com.chatapp.chatApp.ui.login
 
 import android.util.Log
 import androidx.databinding.ObservableField
+import com.chatapp.chatApp.ui.DataUtils
 import com.chatapp.chatApp.ui.base.BaseViewModel
 import com.chatapp.database.signIn
-import com.chatapp.chatApp.ui.model.AppUser
+import com.chatapp.database.model.AppUser
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
@@ -62,6 +63,7 @@ class LoginViewModel : BaseViewModel<Navigator>() {
                     messageLiveData.value = "Invalid Email Or Password"
                     return@OnSuccessListener
                 }
+                DataUtils.user = user
                 navigator?.openHomeScreen()
             },
             OnFailureListener {

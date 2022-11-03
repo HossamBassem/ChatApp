@@ -1,4 +1,4 @@
-package com.chatapp.chatApp.ui.model
+package com.chatapp.database.model
 
 data class AppUser(
     var id: String? = null,

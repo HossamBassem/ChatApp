@@ -3,8 +3,8 @@ package com.chatapp.chatApp.ui.addRoom
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.chatapp.chatApp.ui.base.BaseViewModel
-import com.chatapp.chatApp.ui.model.Category
-import com.chatapp.chatApp.ui.model.Room
+import com.chatapp.database.model.Category
+import com.chatapp.database.model.Room
 import com.chatapp.database.addRoom
 
 class AddRoomViewModel : BaseViewModel<Navigator>() {

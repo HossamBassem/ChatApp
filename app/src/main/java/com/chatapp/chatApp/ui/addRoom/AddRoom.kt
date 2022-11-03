@@ -1,15 +1,12 @@
 package com.chatapp.chatApp.ui.addRoom
 
 import android.content.DialogInterface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.chatapp.R
 import com.chatapp.chatApp.ui.base.BaseActivity
-import com.chatapp.chatApp.ui.model.Category
 import com.chatapp.databinding.ActivityAddRoomBinding
 
 class AddRoom : BaseActivity<AddRoomViewModel, ActivityAddRoomBinding>(), Navigator {
@@ -31,30 +28,30 @@ class AddRoom : BaseActivity<AddRoomViewModel, ActivityAddRoomBinding>(), Naviga
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
-                    
+
                 }
 
             }
         viewdataBinding.vm = viewModel
         viewModel.navigator = this
         viewModel.roomAdded.observe(
-            this, { added ->
-                if (added) {
-                    showDialog(
-                        "Room Added Successfully",
-                        posActionName = "ok",
-                        posAction = DialogInterface.OnClickListener { dialogInterface, i ->
-                            dialogInterface.dismiss()
-                            finish()
-                        },
-                        cancelable = false
-                    )
+            this
+        ) { added ->
+            if (added) {
+                showDialog(
+                    "Room Added Successfully",
+                    posActionName = "ok",
+                    posAction = DialogInterface.OnClickListener { dialogInterface, i ->
+                        dialogInterface.dismiss()
+                        finish()
+                    },
+                    cancelable = false
+                )
 
-
-                }
 
             }
-        )
+
+        }
     }
 
     override fun getLayoutId(): Int {

@@ -4,16 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/drawable-anydpi/ic_add.xml" value="0.165" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/drawable-xxhdpi/item_recieved_message.xml" value="0.1745" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.142" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/drawable/item_sent_message.xml" value="0.1745" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/drawable/rounded_primary.xml" value="0.1745" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/drawable/rounded_stroke_send.xml" value="0.1745" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_add_room.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_chat.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_register.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/content_main.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/fragment_first.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/item_recieved_message.xml" value="0.176" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/item_room.xml" value="0.176" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/item_sent_message.xml" value="0.176" />
         <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/layout/item_spinner_category.xml" value="0.253125" />
+        <entry key="..\:/Users/Eslam bassem/AndroidStudioProjects/ChatApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1745" />
       </map>
     </option>
   </component>

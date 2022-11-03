@@ -7,7 +7,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.chatapp.R
-import com.chatapp.chatApp.ui.model.Category
+import com.chatapp.database.model.Category
 
 class CategoriesSpinnerAdapter(val items: List<Category>) : BaseAdapter() {
     override fun getCount(): Int {
